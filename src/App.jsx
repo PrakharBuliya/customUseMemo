@@ -1,8 +1,9 @@
 //UseMemo hook helps you cache the result of a calculation between re-renders.
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 import "./App.css";
+import useCustomMemo from "./hook/useCustomMemo";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -13,7 +14,7 @@ function App() {
     return counter * counter;
   };
 
-  const memoisedSquaredValue = useMemo(squaredValue, [counter]);
+  const memoisedSquaredValue = useCustomMemo(squaredValue, [counter]);
 
   return (
     <div className="app">
